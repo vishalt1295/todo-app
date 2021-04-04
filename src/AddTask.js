@@ -10,7 +10,6 @@ class AddTask extends React.Component {
         event.preventDefault()
         let newTask = this.props.tasks;
         newTask.push({"id": newTask.length + 1, "title": this.state.title, "type": this.state.type});
-        this.props.push("/")
     }
 
     render() {
@@ -25,16 +24,12 @@ class AddTask extends React.Component {
                     <div className="form-group">
                         <label htmlFor="addTask">Type</label>
                         <select className="form-control" id="taskAdd">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option value="task">Task</option>
+                            <option value="feature">Feature</option>
+                            <option value="bug">Bug</option>
                         </select>
-
                     </div>
-
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" onClick={this.addTask} className="btn btn-primary">Add Task</button>
                 </form>
             </div>
         );

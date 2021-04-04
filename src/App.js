@@ -11,7 +11,7 @@ class App extends React.Component {
         this.state = {
             tasks: [],
             errorMsg: ''
-        }
+        };
     }
 
     componentDidMount() {
@@ -26,6 +26,12 @@ class App extends React.Component {
             this.setState({errorMsg: error.message})
         })
     }
+
+    updateTaskList = (newTask) => {
+        this.setState({tasks: newTask});
+    }
+
+
 
     render() {
         return (
@@ -58,7 +64,7 @@ class App extends React.Component {
                         <AddTask tasks={this.state.tasks} updateTaskList={this.updateTaskList}/>)}/>
                 </Switch>
             </Router>
-        )
+        );
     }
 }
 
